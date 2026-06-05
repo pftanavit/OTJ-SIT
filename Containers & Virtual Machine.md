@@ -12,8 +12,7 @@
 1) A container isolates an application's processes by packaging the app with all the files, configurations, and dependencies it needs to run, ensuring it works consistently on any machine.  
 2) It is used for running an application on any device as long as there is Docker.  
 3) A Virtual machine is a software running inside a computer. Virtualization allows machines to run multiple operating systems simultaneously.  
-4) The difference between container and VM is that VM runs a full guest operating system consuming disk spaces, RAM, CPU whereas a container shares the host’s operating system making it lightweight, fast to start, and highly portable. 
+4) The difference between container and VM is that VM runs a full guest operating system consuming disk spaces, RAM, CPU whereas a container shares the host’s operating system making it lightweight, fast to start, and highly portable.
 
-![][image1]
 
-[image1]: <img width="1238" height="662" alt="vm vs container" src="https://github.com/user-attachments/assets/407fb5d1-1e2b-4f41-a9a7-1b14795607ea" />
+![vm vs container](https://github.com/user-attachments/assets/407fb5d1-1e2b-4f41-a9a7-1b14795607ea)

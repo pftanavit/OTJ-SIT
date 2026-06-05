@@ -48,4 +48,8 @@ You must explain the difference between stopping and removing a container.
 
 **Answer:** *2\. PID 1 (bash) and PID 8 (ps). PID 1 is the primary process. It is the interactive shell that runs with docker run \-it. PID 8 is the tool run with the ps command.* 
 
+**Q: What is the difference between the states paused and stopped.**
+
+**Answer:** *When paused, the process is frozen. The CPU stops but the RAM stays full. Stopping fully kills the container while pausing freezes it in place. Pausing and unpausing takes a shorter time since the container does not need to boot up again. Docker start takes longer.*
+
 [image1]: https://github.com/user-attachments/assets/5a671db1-d1a3-4869-9aab-eb6590968d4b

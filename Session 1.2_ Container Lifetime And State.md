@@ -28,23 +28,23 @@ You must explain the difference between stopping and removing a container.
 
 **Questions:**
 
-What survives after docker stop?
+**Q: What survives after docker stop?**
 
 **Answer:** *Everything on the disk survives. The writable layer remains completely intact and preserved. It is stored and waiting to be started back on.*
 
-What disappears after docker rm?
+**Q: What disappears after docker rm?**
 
 **Answer:** *Everything disappears, the configurations, the settings, the history. Anything inside that container is completely wiped.* 
 
-Why should important data not live only inside a disposable container?
+**Q: Why should important data not live only inside a disposable container?**
 
 **Answer:** *Containers are designed to be stateless and disposable. Therefore, entrusting important data on it induces risks such as accidental deletion and accessing it on other applications is also more difficult. Important data can also be at risk when software updates happen on a container.*
 
-After docker start, docker exec back in and run ls. Is your file still there?
+**Q: After docker start, docker exec back in and run ls. Is your file still there?**
 
 **Answer:** *Yes, it would still be there because it loaded up an existing container. Running ls will show that your files are still there.*
 
-Run ps. How many processes do you see running inside the container? 
+**Q: Run ps. How many processes do you see running inside the container?**
 
 **Answer:** *2\. PID 1 (bash) and PID 8 (ps). PID 1 is the primary process. It is the interactive shell that runs with docker run \-it. PID 8 is the tool run with the ps command.* 
 

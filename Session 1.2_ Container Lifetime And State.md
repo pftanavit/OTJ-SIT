@@ -20,11 +20,11 @@ You must explain the difference between stopping and removing a container.
 
 ![][image1]
 
-- **docker ps \-a:** shows all the containers with all the statuses.  
-- **docker ps:** shows only the containers that are up and running currently.  
-- **docker run:** create a brand new container.  
-- **docker start \-i \<container\_id\>:** start the stopped container with that container\_id.  
-- **docker rm \<container\_id\>:** remove and delete the container.
+- `docker ps -a`: shows all the containers with all the statuses.  
+- `docker ps`: shows only the containers that are up and running currently.  
+- `docker run`: create a brand new container.  
+- `docker start \-i \<container\_id\>`: start the stopped container with that container\_id.  
+- `docker rm \<container\_id\>`: remove and delete the container.
 
 ## Questions:
 

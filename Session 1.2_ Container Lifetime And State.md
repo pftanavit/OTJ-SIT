@@ -53,5 +53,71 @@ You must explain the difference between stopping and removing a container.
 **Answer:** *Paused means the container process is frozen and can be resumed. Stopped means the main process has exited or has been stopped. Both are different from removed, where the container object is deleted.*
 
 ## Examples:
+**1. Create a new container and create a new file inside.**
+```
+docker run -it ubuntu
+```
+Inside the container:
+```
+echo "hello docker" > test.txt
+ls
+cat test.txt
+exit
+```
+Output:
+```
+bin  boot  dev  etc  home  lib  media  mnt  opt  proc  root  run  sbin  srv  sys  test.txt  tmp  usr  var
+
+hello docker
+```
+**2. Find the stopped container.**
+
+```
+docker ps -a
+```
+Output:
+```
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS         NAMES
+6171afcbb1b8   ubuntu         "/bin/bash"              2 minutes ago   Exited (0) 4 seconds ago             vibrant_robinson
+```
+
+**3. Start the same container again.**
+```
+docker start -i 6171afcbb1b8
+cat test.txt
+exit
+```
+Output:
+```
+hello docker
+```
+This proves that stopping the container did not remove its writable layer.
+
+**4. Removing the container and creating a brand new one.**
+
+```
+docker rm 6171afcbb1b8
+docker run -it ubuntu
+```
+Inside the new container:
+```
+ls
+exit
+```
+Output:
+```
+bin  boot  dev  etc  home  lib  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+```
+This proves that a newly created container does not inherit files from the removed container.
+
+## Conclusion
+
+`docker stop`: Shuts down the active processes, but freezes the container and its writable layer on the disk.
+
+`docker start`: Wakes up that exact same container. The files survive because you are jumping back into the same writable layer.
+
+`docker rm`: Destroys the container object and its writable layer completely. The base Ubuntu image stays safe, but the unique files are gone forever.
+
+`docker run`: Creates a brand-new container from scratch with a completely blank writable layer.
 
 [image1]: https://github.com/user-attachments/assets/5a671db1-d1a3-4869-9aab-eb6590968d4b

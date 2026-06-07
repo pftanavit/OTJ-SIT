@@ -52,4 +52,6 @@ You must explain the difference between stopping and removing a container.
 
 **Answer:** *Paused means the container process is frozen and can be resumed. Stopped means the main process has exited or has been stopped. Both are different from removed, where the container object is deleted.*
 
+## Example:
+
 [image1]: https://github.com/user-attachments/assets/5a671db1-d1a3-4869-9aab-eb6590968d4b

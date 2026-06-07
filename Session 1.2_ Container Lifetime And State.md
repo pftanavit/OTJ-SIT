@@ -50,6 +50,6 @@ You must explain the difference between stopping and removing a container.
 
 **Q: What is the difference between the states paused and stopped.**
 
-**Answer:** *When paused, the process is frozen. The CPU stops but the RAM stays full. Stopping fully kills the container while pausing freezes it in place. Pausing and unpausing takes a shorter time since the container does not need to boot up again. Docker start takes longer.*
+**Answer:** *Paused means the container process is frozen and can be resumed. Stopped means the main process has exited or has been stopped. Both are different from removed, where the container object is deleted.*
 
 [image1]: https://github.com/user-attachments/assets/5a671db1-d1a3-4869-9aab-eb6590968d4b

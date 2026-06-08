@@ -104,3 +104,27 @@ The container that installed the package was still able to use the packages agai
 **Why manual installation is not repeatable?**
 
 **Answer:** _When we run `apt-get install` inside a running container, the installation process modifies that container's isolated file system by adding files and binaries. These changes live strictly inside that specific container's temporary writable layer. Because this layer is uniquely bound to that single container instance, the changes are not transferable; when you create a brand-new container, Docker builds it fresh from the pristine, read-only base image where those packages do not exist._
+
+## Questions
+
+1. **What did apt update download, and why is it needed before apt install?**
+    
+    * `apt-get update` downloads the latest package lists and metadata from your configured software repositories but does not actually download or install any software upgrades. Basically, it updates all the local index of the available packages that are available for download. It is needed because this step ensures the package manager is aware of the software's existence, its dependencies, and the correct download paths.
+
+2. **What problem would a Dockerfile solve here?**
+    
+    * A Dockerfile would solve the repeating manual installation every time. Dockerfile provides a blueprint and automated the installation process. Any container that is started from the custom image will have all the packages required pre-installed.
+
+3. **Run apt update, then apt install -y curl, then "which curl". Which full path did curl get installed to?**
+
+    * `which curl` gives out put: `/usr/bin/curl`.
+     
+    It is installed at `usr/bin/curl`.
+
+4. **The binary lives under /usr/bin. What is PATH, and how does the shell use it to find curl?**
+
+    * The `PATH` is a crucial environment variable that lists the directories your shell searches for executable programs. The shell uses the `PATH` string like a sequential checklist to find the `curl` binary file.
+
+    `echo $PATH` shows `/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin`. 
+    
+    `PATH` goes through each folder that is separated by `:` until it finds `curl`.

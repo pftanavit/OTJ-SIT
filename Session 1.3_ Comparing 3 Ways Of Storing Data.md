@@ -57,7 +57,7 @@ Output:
 ```
 Created inside container
 ```
-If you look at the `host-data  ` folder, the file `container.txt` that was created still exists even when the container was deleted.
+If you look at the `host-data` folder, the file `container.txt` that was created still exists even when the container was deleted.
 
 **3. Named Volume**
 

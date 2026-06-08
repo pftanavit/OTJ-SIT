@@ -11,13 +11,13 @@
 
 **1. Container Writable Layer**
 
-Start up a new container
+Start up a new container.
 ```
 docker run -it --name test-disposible ubuntu
 echo "temporary" > disposible.txt
 exit
 ```
-Delete the container
+Delete the container.
 ```
 docker rm test-disposible
 ```
@@ -45,11 +45,11 @@ docker run -it --name test-mount -v ~/host-data:/data ubuntu
 echo "Created inside container" > data/container.txt
 exit
 ```
-Delete the container
+Delete the container.
 ```
 docker rm test-mount
 ```
-Look inside the folder
+Look inside the folder.
 ```
 cat host-data/container.txt
 ```
@@ -61,11 +61,11 @@ If you look at the `host-data  ` folder, the file `container.txt` that was creat
 
 **3. Named Volume**
 
-Create a named volume
+Create a named volume.
 ```
 docker volume create state-demo
 ```
-Attach the volume to container1 at `/data`
+Attach the volume to container1 at `/data`.
 
 ```
 docker run -it --name container1 -v state-demo:/data ubuntu
@@ -76,7 +76,7 @@ echo "Created inside container1" > data/data.txt
 exit
 docker rm container1
 ```
-Create a new container `container2` at the same volume
+Create a new container `container2` at the same volume.
 ```
 docker run -it --name container2 -v state-demo:/data ubuntu
 ```

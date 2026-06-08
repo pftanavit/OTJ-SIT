@@ -8,5 +8,5 @@
 - Do not use a Dockerfile yet.
 
 **Expected result:**
-The learner can install a package inside a container.
-The learner can explain why manual installation is not repeatable.
+- The learner can install a package inside a container.
+- The learner can explain why manual installation is not repeatable.

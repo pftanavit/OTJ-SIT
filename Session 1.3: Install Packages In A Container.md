@@ -10,3 +10,10 @@
 **Expected result:**
 - The learner can install a package inside a container.
 - The learner can explain why manual installation is not repeatable.
+
+## Example:
+
+Start a new container.
+```
+docker run -it ubuntu
+```

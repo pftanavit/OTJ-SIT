@@ -65,35 +65,6 @@ Tue Jun  9 03:42:11 UTC 2026
 Tue Jun  9 03:42:13 UTC 2026
 Tue Jun  9 03:42:15 UTC 2026
 Tue Jun  9 03:42:17 UTC 2026
-Tue Jun  9 03:42:19 UTC 2026
-Tue Jun  9 03:42:21 UTC 2026
-Tue Jun  9 03:42:23 UTC 2026
-Tue Jun  9 03:42:25 UTC 2026
-Tue Jun  9 03:42:27 UTC 2026
-Tue Jun  9 03:42:29 UTC 2026
-Tue Jun  9 03:42:31 UTC 2026
-Tue Jun  9 03:42:33 UTC 2026
-Tue Jun  9 03:42:35 UTC 2026
-Tue Jun  9 03:42:37 UTC 2026
-Tue Jun  9 03:42:39 UTC 2026
-Tue Jun  9 03:42:41 UTC 2026
-Tue Jun  9 03:42:43 UTC 2026
-Tue Jun  9 03:42:45 UTC 2026
-Tue Jun  9 03:42:47 UTC 2026
-Tue Jun  9 03:42:49 UTC 2026
-Tue Jun  9 03:42:51 UTC 2026
-Tue Jun  9 03:42:53 UTC 2026
-Tue Jun  9 03:42:55 UTC 2026
-Tue Jun  9 03:42:57 UTC 2026
-Tue Jun  9 03:42:59 UTC 2026
-Tue Jun  9 03:43:01 UTC 2026
-Tue Jun  9 03:43:03 UTC 2026
-Tue Jun  9 03:43:05 UTC 2026
-Tue Jun  9 03:43:07 UTC 2026
-Tue Jun  9 03:43:09 UTC 2026
-Tue Jun  9 03:43:11 UTC 2026
-Tue Jun  9 03:43:13 UTC 2026
-Tue Jun  9 03:43:15 UTC 2026
 ```
 
 This container is now running infinitely in the background using a `while` loop which makes it print the date every 2 seconds. 

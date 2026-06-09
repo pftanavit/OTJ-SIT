@@ -25,7 +25,7 @@ When running `docker run -it ubuntu`, Docker looks at the Ubuntu image, sees its
 
 What this means is that the container's entire existence is now tied to the active keyboard session. If the terminal window is closed, or Wi-Fi connection is lost, or type `exit`, that `bash` process (PID 1) terminates.
 
-Try a to create a container that keeps running.
+Try to create a container that keeps running.
 
 Using `while` loop:
 ```

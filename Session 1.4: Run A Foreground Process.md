@@ -154,14 +154,14 @@ This skips the two-step process and force-delete a container using -f flag.
 
     * A virtual Machine (VM) boots up an entire operating system and hundreds of systems in the background. As opposed to a container in which it isolates around the application process itself.
 4. **Run `ps -ef` inside the container. Which process shows as PID 1?**
-* 
+    
     ```text
     UID        PID  PPID  C STIME TTY          TIME CMD
     root         1     0  0 04:29 ?        00:00:00 sleep infinity
     root         7     0  0 04:29 pts/0    00:00:00 bash
     root        14     7  0 04:29 pts/0    00:00:00 ps -ef
     ```
-    `sleep infinity` is the `PID1` 
+    * `sleep infinity` is the `PID1` 
 
 5. **On a normal Ubuntu machine PID 1 is `systemd`. Here PID 1 is your own command. What does that tell you about what a container really is?**
 

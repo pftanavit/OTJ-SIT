@@ -23,7 +23,7 @@ docker run -it ubuntu
 
 When running `docker run -it ubuntu`, Docker looks at the Ubuntu image, sees its default command is `bash`, and boots up a `bash` shell as PID 1. 
 
-What this means is that the container's entire existence is now tied to the active keyboard session. If the terminal window is closed, or Wi-Fi connection is lost, or type `exit`, that `bash` process (PID 1) terminates.
+What this means is that the container's entire existence is now tied to the active keyboard session. If the terminal window is closed, or type `exit`, that `bash` process (PID 1) terminates.
 
 Try to create a container that keeps running.
 

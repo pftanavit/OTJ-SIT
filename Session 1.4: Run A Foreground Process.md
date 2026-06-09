@@ -25,6 +25,81 @@ When running `docker run -it ubuntu`, Docker looks at the Ubuntu image, sees its
 
 What this means is that the container's entire existence is now tied to the active keyboard session. If the terminal window is closed, or Wi-Fi connection is lost, or type `exit`, that `bash` process (PID 1) terminates.
 
+Try a to create a container that keeps running.
+
+Using `while` loop:
+```
+docker run -d --name while-loop ubuntu bash -c "while true; do date; sleep 2; done"
+```
+Check:
+```
+docker ps
+```
+Output:
+```
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS     NAMES
+c535b4fd2e23   ubuntu    "bash -c 'while true…"   2 minutes ago   Up 2 minutes             while-loop
+```
+
+Now look at the logs:
+```
+docker logs while-loop
+```
+Output:
+```
+Tue Jun  9 03:41:43 UTC 2026
+Tue Jun  9 03:41:45 UTC 2026
+Tue Jun  9 03:41:47 UTC 2026
+Tue Jun  9 03:41:49 UTC 2026
+Tue Jun  9 03:41:51 UTC 2026
+Tue Jun  9 03:41:53 UTC 2026
+Tue Jun  9 03:41:55 UTC 2026
+Tue Jun  9 03:41:57 UTC 2026
+Tue Jun  9 03:41:59 UTC 2026
+Tue Jun  9 03:42:01 UTC 2026
+Tue Jun  9 03:42:03 UTC 2026
+Tue Jun  9 03:42:05 UTC 2026
+Tue Jun  9 03:42:07 UTC 2026
+Tue Jun  9 03:42:09 UTC 2026
+Tue Jun  9 03:42:11 UTC 2026
+Tue Jun  9 03:42:13 UTC 2026
+Tue Jun  9 03:42:15 UTC 2026
+Tue Jun  9 03:42:17 UTC 2026
+Tue Jun  9 03:42:19 UTC 2026
+Tue Jun  9 03:42:21 UTC 2026
+Tue Jun  9 03:42:23 UTC 2026
+Tue Jun  9 03:42:25 UTC 2026
+Tue Jun  9 03:42:27 UTC 2026
+Tue Jun  9 03:42:29 UTC 2026
+Tue Jun  9 03:42:31 UTC 2026
+Tue Jun  9 03:42:33 UTC 2026
+Tue Jun  9 03:42:35 UTC 2026
+Tue Jun  9 03:42:37 UTC 2026
+Tue Jun  9 03:42:39 UTC 2026
+Tue Jun  9 03:42:41 UTC 2026
+Tue Jun  9 03:42:43 UTC 2026
+Tue Jun  9 03:42:45 UTC 2026
+Tue Jun  9 03:42:47 UTC 2026
+Tue Jun  9 03:42:49 UTC 2026
+Tue Jun  9 03:42:51 UTC 2026
+Tue Jun  9 03:42:53 UTC 2026
+Tue Jun  9 03:42:55 UTC 2026
+Tue Jun  9 03:42:57 UTC 2026
+Tue Jun  9 03:42:59 UTC 2026
+Tue Jun  9 03:43:01 UTC 2026
+Tue Jun  9 03:43:03 UTC 2026
+Tue Jun  9 03:43:05 UTC 2026
+Tue Jun  9 03:43:07 UTC 2026
+Tue Jun  9 03:43:09 UTC 2026
+Tue Jun  9 03:43:11 UTC 2026
+Tue Jun  9 03:43:13 UTC 2026
+Tue Jun  9 03:43:15 UTC 2026
+```
+
+This container is now running infinitely in the background using a `while` loop which makes it print the date every 2 seconds. 
+
+This method works, however, notice that it consumes CPU in the background.
+
 Now try creating a container that keeps running using the command `sleep infinity`
 
 ```
@@ -39,7 +114,7 @@ Output:
 CONTAINER ID   IMAGE     COMMAND            CREATED         STATUS         PORTS     NAMES
 cc6bb6e44466   ubuntu    "sleep infinity"   2 seconds ago   Up 2 seconds             infinite-container
 ```
-The container is now running in the background infinitely. 
+The container is now running in the background infinitely. Using 0% CPU.
 
 To enter the container: 
 ```
@@ -85,7 +160,13 @@ Output:
 CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 ```
 
-## Explaination
+Shortcut:
+```
+docker rm -f infinite-container
+```
+This skips the two-step process and force-delete a container using -f flag.
+
+## Explanation
 
 * `docker run` creates a new container. When that command was executed with `sleep infinity`, it then became `PID1` and as long as it is running, the container will live.
-* `docker exec` starts a new process inside the already running container. Since it is not `PID1`, you can start it, work in it, exit it, without afftecting the container.
+* `docker exec` starts a new process inside the already running container. Since it is not `PID1`, you can start it, work in it, exit it, without affecting the container.

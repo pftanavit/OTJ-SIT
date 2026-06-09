@@ -8,6 +8,7 @@
 - It is the original addressing system of the internet. It uses a 32-bit format, which is written as four blocks of numbers separated by periods.
 - For example, `192.168.1.0`
 - Each block ranges from 0 to 255.
+
 - Since it consist of 4 blocks, it is limited to around 2^32 or 4.3 billion addresses.
 - IPv6 is now the most recent version of IP, using 128-bit addresses.
 
@@ -22,6 +23,8 @@
 - For example: `255.255.255.0` or `/24`.
 - `255` means that that portion is locked for Network ID.
 - `0` means that it is for Host ID.
+
+![image1](https://github.com/user-attachments/assets/bd7e9da0-f739-498c-8128-2eec1fa6e21d)
 
 ## Network ID and Host ID
 

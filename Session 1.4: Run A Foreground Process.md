@@ -141,3 +141,31 @@ This skips the two-step process and force-delete a container using -f flag.
 
 * `docker run` creates a new container. When that command was executed with `sleep infinity`, it then became `PID1` and as long as it is running, the container will live.
 * `docker exec` starts a new process inside the already running container. Since it is not `PID1`, you can start it, work in it, exit it, without affecting the container.
+
+## Questions
+
+1. **What was the main process?**
+
+    * The main process was the specific command passed to Docker when started the container. For example, in the previous steps, it was `bash`, `while` loop, or `sleep infinity`.
+2. **What happened when the process ended?**
+
+    * When the process ended, the container shuts down and transitions to the `Exited` state.
+3. **Why is a container not the same as a full virtual machine?**
+
+    * A virtual Machine (VM) boots up an entire operating system and hundreds of systems in the background. As opposed to a container in which it isolates around the application process itself.
+4. **Run `ps -ef` inside the container. Which process shows as PID 1?**
+* 
+    ```text
+    UID        PID  PPID  C STIME TTY          TIME CMD
+    root         1     0  0 04:29 ?        00:00:00 sleep infinity
+    root         7     0  0 04:29 pts/0    00:00:00 bash
+    root        14     7  0 04:29 pts/0    00:00:00 ps -ef
+    ```
+    `sleep infinity` is the `PID1` 
+
+5. **On a normal Ubuntu machine PID 1 is `systemd`. Here PID 1 is your own command. What does that tell you about what a container really is?**
+
+    * A container is not booting an operating system. It is simply jus the raw application running on the machine.
+6. **What does adding `&` to a command do, and why could that make the container exit right away?**
+
+    * Adding an ampersand (`&`) to the end of a command forces the Linux shell to push that task into the background and immediately move on to the next line of code. In Docker, this causes the container to exit immediately. For example, if you `run docker run -d --name background-trap ubuntu bash -c "sleep infinity &"`, Docker assigns the bash `shell` as `PID1`. The `shell` reads the script, throws the sleep process into the background, and looks for the next instruction. Because there is no next line of code, the shell (`PID1`) declares its job finished and exits. Since a container only lives as long as its main process, Docker immediately shuts the entire container down.

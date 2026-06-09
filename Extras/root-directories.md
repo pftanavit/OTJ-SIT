@@ -20,5 +20,23 @@
 - `usr` **(User System Resources)**: A massive directory containing user utilities, libraries, and programming files that aren't critical for basic booting but are essential for running day-to-day software.
 - `var`**(Variable)**: A shortcut to `/private/var`. It holds files that frequently change in size and content while the system runs, such as system logs, print queues, and caches.
 
+## / (Root) and ~ (Tilde)
+
+In a Unix system, the file system is structured as an inverted tree. 
+
+### Root (/)
+The slash character represents the absolute base of this entire tree.
+* Every path on the computer starts at `/`. 
+* It is also a global space. Files located here affect the entire system. 
+
+### Tilde / Home (~)
+It is a shell expansion shortcut that dynamically points to the active user's home directory.
+* The actual path of `~` changes depending on users.
+
+    * For user John, `~` translates to `/Users/john`.
+    * For user Sarah, `~` translates to `/Users/sarah`.
+    * For Root user, `~` translates to `/var/root` (or `/root` on Linux).
+
+
 
 

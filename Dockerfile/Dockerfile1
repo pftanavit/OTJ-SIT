@@ -3,3 +3,5 @@ FROM ubuntu
 RUN apt-get update && apt-get install curl
 
 CMD ["curl", "--version"]
+
+#From Session 2.1: Build A Custom Tools Image

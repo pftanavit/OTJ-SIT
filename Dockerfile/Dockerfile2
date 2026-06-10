@@ -1,0 +1,7 @@
+FROM ubuntu
+
+COPY note.txt /app/note.txt
+
+CMD ["cat", "/app/note.txt"]
+
+#From Session 2.2 Copy Files Into An Image

@@ -40,8 +40,13 @@ docker run file-print
     "Hello World"% 
     ```
 5. Check where the file lives:
+
+Start another container using `file-print` image.
 ```
 docker run -it file-print bash
+```
+Check the files:
+```
 cd app
 ls
 cat note.txt

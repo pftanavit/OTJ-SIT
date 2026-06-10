@@ -7,7 +7,7 @@
 - Base image must be ubuntu.
 - Use COPY.
 - The file must be inside /app.
-- 
+
 **Expected result**
 - Running the image prints the copied file.
 - The learner can identify where the file lives inside the image.

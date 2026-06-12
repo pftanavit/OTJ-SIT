@@ -1,4 +1,4 @@
-## Session 1: Enter A Base OS Container
+# Session 1: Enter A Base OS Container
 
 **Goal:** Start an Ubuntu container, enter its shell, find where you are, list files, create a file, read it, and exit.
 

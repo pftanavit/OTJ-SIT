@@ -1,4 +1,4 @@
-## Session 1.3: Install Packages In A Container
+# Session 1.3: Install Packages In A Container
 
 **Goal:** Start an Ubuntu container, install curl, use it to make an HTTP request, then exit and explain whether the installed package is saved for future new containers.
 

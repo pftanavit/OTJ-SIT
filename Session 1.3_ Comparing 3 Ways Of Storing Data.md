@@ -1,4 +1,4 @@
-## Session 1.3_ Comparing 3 Ways Of Storing Data
+# Session 1.3_ Comparing 3 Ways Of Storing Data
 
 ### Comparing 3 methods:
 

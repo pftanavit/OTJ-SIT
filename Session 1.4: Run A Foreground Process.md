@@ -1,4 +1,4 @@
-## Session 1.4: Run A Foreground Process
+# Session 1.4: Run A Foreground Process
 **Goal:**
 - Start a base OS container that keeps running by running a long-lived foreground command.
 

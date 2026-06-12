@@ -1,4 +1,4 @@
-## Session 1.2: Container Lifetime And State 
+# Session 1.2: Container Lifetime And State 
 
 **Goal:** Create a file inside a container, exit, find the stopped container, start it again, and prove whether the file still exists. then recreate the container and see what happens to the file.
 

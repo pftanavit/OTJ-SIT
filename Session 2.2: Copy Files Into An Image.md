@@ -1,4 +1,4 @@
-## Session 2.2: Copy Files Into An Image
+# Session 2.2: Copy Files Into An Image
 
 **Goal:**
 - Create a local text file, copy it into an Ubuntu-based image, and make the container print the file content when it runs.

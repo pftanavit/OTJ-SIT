@@ -1,4 +1,4 @@
-## Session 2.1: Build A Custom Tools Image
+# Session 2.1: Build A Custom Tools Image
 **Goal:**
 - Create a Dockerfile from ubuntu that installs curl and runs curl --version by default.
 

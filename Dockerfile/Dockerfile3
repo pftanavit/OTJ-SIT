@@ -8,4 +8,4 @@ RUN chmod +x script.sh
 
 CMD ["./script.sh"]
 
-#Used in Session 2.3: Create A Tiny Scripted App
+#From Session 2.3: Create A Tiny Scripted App

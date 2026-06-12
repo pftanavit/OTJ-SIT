@@ -15,3 +15,53 @@
 * The learner can pass different values with environment variables.
 
 ## Example
+
+1. Create the `shell` script: `script.sh` on your machine.
+```
+#!/bin/bash
+
+echo "Running in Docker container"
+echo "my message: $MY_MESSAGE"
+echo "==========================="
+```
+
+2. In the same directory as `script.sh` create s `Dockerfile`.
+```
+FROM ubuntu
+
+WORKDIR /app
+
+COPY script.sh .
+
+RUN chmod +x script.sh
+
+CMD ["./script.sh"]
+```
+
+3. Build the image from the `Dockerfile`.
+```
+docker build -t script-app .
+```
+
+4. Try starting a container from the `script-app` image.
+```
+docker run script-app
+```
+
+Output:
+```
+Running in Docker container
+my message: 
+===========================
+```
+
+5. Now try running with Environment Variables `-e`.
+```
+docker run -e MY_MESSAGE="Hello World." script-app
+```
+Output:
+```
+Running in Docker container
+my message: Hello World.
+===========================
+```

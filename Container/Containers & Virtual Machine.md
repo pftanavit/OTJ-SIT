@@ -1,13 +1,13 @@
 # Containers & Virtual Machine
 
-**Questions:**
+## Questions:
 
 1. What is a container?  
 2. What are containers used for?  
 3. What is a VM?  
 4. VM vs Containers
 
-**Answers**
+## Answers
 
 1) A container isolates an application's processes by packaging the app with all the files, configurations, and dependencies it needs to run, ensuring it works consistently on any machine.  
 2) It is used for running an application on any device as long as there is Docker.  

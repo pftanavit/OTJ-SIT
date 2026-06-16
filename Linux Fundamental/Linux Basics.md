@@ -1,4 +1,4 @@
-## What the Colors Mean?
+## What do the Colors Mean?
 
 The colors in terminal are a visual code to help instantly spot what kind of file you are looking at. 
 The standard Linux setups use these color rules:

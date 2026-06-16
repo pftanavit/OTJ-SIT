@@ -61,3 +61,24 @@
     ```
     container-text.txt  host-file.txt
     ```
+
+## Questions
+
+1. **Which path is on the host, which one is inside the container?**
+
+    * From the command `-v "$(pwd):/app"`: 
+        
+        * The _Host_ path is always on the **left** side of the colon. (`$(pwd)`) 
+        * The _Container_ path is always on the **right** side of the colon. (`/app`) 
+
+2. **What happens if the host directory does not exist?**
+
+    * If the host directory does not exist, Docker will automatically create it as an empty directory on your host machine.
+3. **Why might the file be owned by root on the host?**
+
+    * Because the process running inside the container (`ubuntu bash shell`) is operating as root by default. Therefore when we created the file, the container's root user created it.
+4. **A UID is just a number. How can the same number be "root" inside the container but a normal user on the host?**
+
+    * User IDs or (UIDs) are pure numbers. The translation from a number to name happens using a dictionary file located at `/etc/passwd`. Because the container and the host have completely isolated file systems, they have different dictionary files. The same UID inside the container and outside may give different names.
+
+    * Normally, `UID 0` is `root`. Docker has a feature called User Namespaces (`userns-remap`). This lets the container thinks that it is using `UID 0` to enable it to operate inside its sandbox. However, if it tries to write a file to host, the Linux intercepts it and translates it to a high number with no privileges to the host. This helps with security and keeps the process completely __isolated__ within the container.

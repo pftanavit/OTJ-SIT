@@ -81,4 +81,4 @@ The data that was created inside a container which was attach to a volume will b
 
 6. **The container's writable layer disappears on docker rm, but the volume survives. Why is that difference useful?**
     
-    * It is useful because it separetes between the container writable container that is temporary and a permanent volume. You can store important information using volumes and create new containers for your condition. For example, application upgrades, you can safely keep your data and create a create a new container with the updated applications. Your data will still be safely kept in the volume. 
+    * It is useful because it separates between the container writable container that is temporary and a permanent volume. You can store important information using volumes and create new containers for your condition. For example, application upgrades, you can safely keep your data and create a create a new container with the updated applications. Your data will still be safely kept in the volume. 

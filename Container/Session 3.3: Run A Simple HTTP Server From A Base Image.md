@@ -27,6 +27,8 @@
 
     RUN echo "<h1>Hello from the custom Ubuntu HTTP server!</h1>" > index.html
 
+    EXPOSE 8000
+
     CMD ["python3", "-m", "http.server", "8000"]
     ```
 2. Build the custom image.

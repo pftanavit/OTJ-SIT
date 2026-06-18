@@ -1,6 +1,6 @@
 ## Session 2.1: Proxy One Backend With Nginx
 
-### Goal
+### Goal:
 
 Replace Apache with an `nginx` container doing the same reverse-proxy job to the single `whoami` backend.
 

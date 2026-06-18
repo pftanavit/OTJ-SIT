@@ -2,7 +2,7 @@
 
 ### Goal:
 
-Replace Apache with an `nginx` container doing the same reverse-proxy job to the single `whoami` backend.
+- Replace Apache with an `nginx` container doing the same reverse-proxy job to the single `whoami` backend.
 
 ### Constraints:
 

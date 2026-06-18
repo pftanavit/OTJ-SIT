@@ -85,7 +85,7 @@ Run an `httpd` container that reverse-proxies incoming requests to the `whoami` 
     
     * The ip is from the original client. In this case, `192.168.65.1` is the internal virtual gateway IP used by Docker to represent the host machine.
 
-3. **Try to `curl` the backend's port directly from the host. Does it work? Why not?
+3. **Try to `curl` the backend's port directly from the host. Does it work? Why not?**
     
     * Try:
         ```

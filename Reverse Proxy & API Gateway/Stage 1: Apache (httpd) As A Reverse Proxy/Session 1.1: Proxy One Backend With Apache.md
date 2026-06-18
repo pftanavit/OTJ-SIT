@@ -2,7 +2,7 @@
 
 ### Goal:
 
-Run an `httpd` container that reverse-proxies incoming requests to the `whoami` backend. The client talks only to Apache; Apache forwards to the backend and returns the answer.
+- Run an `httpd` container that reverse-proxies incoming requests to the `whoami` backend. The client talks only to Apache; Apache forwards to the backend and returns the answer.
 
 ### Constraints:
 

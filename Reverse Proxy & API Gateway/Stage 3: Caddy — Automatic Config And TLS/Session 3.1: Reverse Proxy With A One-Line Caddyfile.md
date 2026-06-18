@@ -71,3 +71,41 @@
 
         Client  ───(Encrypted)───►  Proxy  ───(Plain Text)───►  Backend
     
+## Questions
+
+1. **`curl -k https://...` to Caddy. Does the whoami output come back?**
+
+    * ```
+        Hostname: 856e6681f4b5
+        IP: 127.0.0.1
+        IP: ::1
+        IP: 172.19.0.2
+        RemoteAddr: 172.19.0.3:35196
+        GET / HTTP/1.1
+        Host: localhost
+        User-Agent: curl/8.7.1
+        Accept: */*
+        Accept-Encoding: gzip
+        Via: 2.0 Caddy
+        X-Forwarded-For: 172.19.0.1
+        X-Forwarded-Host: localhost
+        X-Forwarded-Proto: https
+    When `curl -k https://localhost` to caddy, the request is encrypted to caddy, which then decrypts. Then, it forwards it internally over HTTP to `backend1`. It then receives the response, re-encrypts, and sends it back. So the `whoami` output appears exactly the same as it did before.
+
+2. **Compare your Caddyfile length to your Nginx config. How many lines did the proxy take in each?**
+
+    * **Nginx**: Around 10-12
+
+    * **Caddy**: Just 4 lines in total.
+
+3. **TLS terminates at Caddy. What are the security implications of the Caddy→backend hop being plain HTTP, and when would that matter?**
+
+    * Because the traffic inside the `proxy-network` Docker network is **unencrypted**, any other container running on that same network that has been compromised _in theory_ could capture the traffic moving between Caddy and the backend. 
+
+    * This matters when 
+        
+        * **`High-Security/Regulated Environments`**: In industries such as banking or healthcare that handles sensitive information. This needs encryption **everywhere** including inside the internal network as well. _(Zero Trust Security model)_
+
+        * **`Shared/Multi-tenant Infrastructure`**: In case where you are running your containers on public cloud hosts where other might have access to the underlying network fabric, plain HTTP is a risk.
+
+        * **`It does not matter for`**: Most internal microservices, where the risk is considered negligible becuase the Docker network is isolated. The complexity and the performance cost simply outweighs the benefits.

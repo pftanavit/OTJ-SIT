@@ -8,7 +8,7 @@
 * No proxy yet — talk to the backend directly.
 * Reach it from the host with curl, not a browser only.
 
-### Expected result:
+### Expected results:
 * `curl` to the published port returns the whoami output (hostname, IP, headers).
 * The learner can point to which line is the container's own hostname.
 

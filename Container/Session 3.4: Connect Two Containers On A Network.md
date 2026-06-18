@@ -41,3 +41,39 @@
     ```
 
 The `test` container is now able to reach `web-server` using `curl` running on the same Docker network.
+<<<<<<< HEAD
+
+## Questions 
+
+1. **Why did container name resolution work?**
+
+    * Because both the containers are on the same network `my-network` that was created. Docker automatically registers the container names in its built-in DNS server.
+
+2. **Why did localhost not reach the other container?**
+
+    * Since containers have isolated network boundaries, `localhost` would mean its own web server. It would be finding its own process web server that does not exist instead.
+
+3. **When do you need -p, and when do you not?**
+
+    * `-p (publish)` would be needed when using container to host. It connects your host machine to the isolated  Docker environment.
+
+    * For container to container, `-p` is not necessary. If both containers are on the same custom network, they can communicate and reach each other.
+
+4. **From the client container, run getent hosts `<other-name>`. What IP address comes back?**
+    
+    Output:
+    ```
+    172.18.0.2      web-server
+    ```
+    This returns the internal IP Address Docker assigned to that container.
+
+5. **Run ip addr in both containers. Do they have different IP addresses?**
+
+    Yes, they are different. In `test`, it shows `172.18.0.3`. In `web-server`, 172.18.0.2. Every single container on a Docker network gets its own distinct internal IP Address. Docker acts as a virtual DHCP router handind out IPs.
+
+6. **How did the container name turn into an IP address?**
+
+    Docker uses Embeded DNS Server `127.0.0.11`. This helps `curl` locate `web-server` by matching the IP of it to `127.18.0.2` and hand it back to `curl`. It is then able to make that connection. 
+=======
+
+>>>>>>> cc58b24ece212dd22eb025df0335de1615c8f6db

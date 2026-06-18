@@ -70,4 +70,6 @@
 
     ![output](https://github.com/user-attachments/assets/c8accd2c-d4ee-4fd9-b024-3f744e3f3c3c)
 
+    Notice that `Hostname` shuffles through not sticking to the same one for each time we use `curl`.
+
     By default, **Nginx** uses a "round-robin" load-balancing algorithm. The container ID of the backend change perfectly in a cycle from backend1 --> backend2 --> backend3 --> backend1.

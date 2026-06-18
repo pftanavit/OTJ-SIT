@@ -53,7 +53,7 @@ Run an `httpd` container that reverse-proxies incoming requests to the `whoami` 
     docker run -d --name my-proxy -p 8080:80 --network proxy-net -v "$(pwd)/my-httpd.conf:/usr/local/apache2/conf/httpd.conf" httpd
     ```
 
-5. Try running `curl`
+5. Try running `curl`.
 
     ```
     curl http://localhost:8080

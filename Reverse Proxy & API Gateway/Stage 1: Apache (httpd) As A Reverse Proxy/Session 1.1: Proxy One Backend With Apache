@@ -1,0 +1,76 @@
+# Session 1.1: Proxy One Backend With Apache
+
+## Goal
+
+Run an `httpd` container that reverse-proxies incoming requests to the `whoami` backend. The client talks only to Apache; Apache forwards to the backend and returns the answer.
+
+## Constraints
+
+- Use the official `httpd` image.
+- The client must NOT publish or reach the backend's port directly — only Apache is published.
+- Apache and the backend must be on the same Docker network so Apache can reach the backend by name.
+- Enable the proxy modules and write the proxy config yourself.
+
+## Expected result
+
+- `curl` to Apache's published port returns the whoami output.
+- The whoami headers now show that the request came *through* Apache.
+
+## Example
+
+1. Create a new network `proxy-net`.
+
+    ```
+    docker network create proxy-net
+    ```
+
+2. Create a new backend container from `traefik/whoami` image.
+
+    ```
+    docker run -d --name my-backend --network proxy-net traefik/whoami
+    ```
+
+3. Write an Apache Config `my-http.conf`.
+
+    ```
+    Listen 80
+
+    LoadModule proxy_module modules/mod_proxy.so
+    LoadModule proxy_http_module modules/mod_proxy_http.so
+    LoadModule mpm_event_module modules/mod_mpm_event.so
+    LoadModule unixd_module modules/mod_unixd.so
+    LoadModule authz_core_module modules/mod_authz_core.so
+
+    <VirtualHost *:80>
+        ProxyPass / http://my-backend/
+        ProxyPassReverse / http://my-backend/
+    </VirtualHost>
+    ```
+
+4. Create a container using `httpd` (Apache HTTP Server) image and mount it to the `my-http.conf` file.
+
+    ```
+    docker run -d --name my-proxy -p 8080:80 --network proxy-net -v "$(pwd)/my-httpd.conf:/usr/local/apache2/conf/httpd.conf" httpd
+    ```
+
+5. Try running `curl`
+
+    ```
+    curl http://localhost:8080
+    ```
+    Output:
+    ```
+    Hostname: 2d5ac125bfca
+    IP: 127.0.0.1
+    IP: ::1
+    IP: 172.19.0.2
+    RemoteAddr: 172.19.0.3:60618
+    GET / HTTP/1.1
+    Host: my-backend
+    User-Agent: curl/8.7.1
+    Accept: */*
+    Connection: Keep-Alive
+    X-Forwarded-For: 192.168.65.1
+    X-Forwarded-Host: localhost:8080
+    X-Forwarded-Server: 172.19.0.3
+    ```

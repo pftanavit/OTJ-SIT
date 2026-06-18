@@ -47,7 +47,7 @@ Run an `httpd` container that reverse-proxies incoming requests to the `whoami` 
     </VirtualHost>
     ```
 
-4. Create a container using `httpd` (Apache HTTP Server) image and mount it inside the container.
+4. Create a container using `httpd` (Apache HTTP Server) image and mount `my-httpd.conf` inside the container.
 
     ```
     docker run -d --name my-proxy -p 8080:80 --network proxy-net -v "$(pwd)/my-httpd.conf:/usr/local/apache2/conf/httpd.conf" httpd

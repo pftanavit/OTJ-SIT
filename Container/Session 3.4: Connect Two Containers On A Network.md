@@ -27,7 +27,7 @@
     ```
     docker run -it --rm --name test --network my-network ubuntu bash
     ```
-4. Install `curl` inside `test`.
+4. Install `curl` inside the container.
     ```
     apt-get update && apt-get install -y curl
     ```

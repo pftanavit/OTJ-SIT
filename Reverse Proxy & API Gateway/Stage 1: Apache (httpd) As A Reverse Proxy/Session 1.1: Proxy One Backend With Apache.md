@@ -1,17 +1,17 @@
 # Session 1.1: Proxy One Backend With Apache
 
-**Goal**:
+## Goal:
 
 Run an `httpd` container that reverse-proxies incoming requests to the `whoami` backend. The client talks only to Apache; Apache forwards to the backend and returns the answer.
 
-**Constraints**:
+## Constraints:
 
 - Use the official `httpd` image.
 - The client must NOT publish or reach the backend's port directly — only Apache is published.
 - Apache and the backend must be on the same Docker network so Apache can reach the backend by name.
 - Enable the proxy modules and write the proxy config yourself.
 
-**Expected result**:
+## Expected result:
 
 - `curl` to Apache's published port returns the whoami output.
 - The whoami headers now show that the request came *through* Apache.

@@ -74,3 +74,13 @@ Run an `httpd` container that reverse-proxies incoming requests to the `whoami` 
     X-Forwarded-Host: localhost:8080
     X-Forwarded-Server: 172.19.0.3
     ```
+
+## Questions
+
+1. **`curl` Apache's port. In the whoami output, what is the `Hostname` — Apache's or the backend's?**
+
+    * It is the backend's `Hostname`. `2d5ac125bfca` is the value of the `my-backend` container. The `whoami` application executes inside the the backend container and reads it `Hostname`.
+
+2. **Look for `X-Forwarded-For` in the `whoami` headers. What IP is in it?**
+    
+    * The ip is from the original client. In this case, `192.168.65.1` is the internal virtual gateway IP used by Docker to represent the host machine.

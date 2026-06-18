@@ -10,7 +10,7 @@ Replace Apache with an `nginx` container doing the same reverse-proxy job to the
 - Only Nginx is published; the backend stays internal.
 - Write the `proxy_pass` config yourself.
 
-### Expected result:
+### Expected results:
 
 - `curl` to Nginx returns the whoami output, same as the Apache stage.
 

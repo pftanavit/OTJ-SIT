@@ -84,3 +84,19 @@ Run an `httpd` container that reverse-proxies incoming requests to the `whoami` 
 2. **Look for `X-Forwarded-For` in the `whoami` headers. What IP is in it?**
     
     * The ip is from the original client. In this case, `192.168.65.1` is the internal virtual gateway IP used by Docker to represent the host machine.
+
+3. **Try to `curl` the backend's port directly from the host. Does it work? Why not?
+    
+    * Try:
+        ```
+        curl http://localhost:80
+        ```
+    * Output: 
+        ```
+        curl: (7) Failed to connect to localhost port 80 after 0 ms: Couldn't connect to server
+        ```
+        It does not work since the back end was never published. So, it is only accessible inside the `proxy-net` network.
+
+4. **What does `ProxyPassReverse` fix that `ProxyPass` alone does not?**
+
+    * It fixes `HTTP Redirects` sent by the backend so the client's browser does not get broken links. `ProxyPass` only handles incoming traffic. So, `ProxyPassReverse` changes `http://my-backend` to `http://localhost:8080`.

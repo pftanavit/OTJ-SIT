@@ -59,4 +59,15 @@
     X-Forwarded-Proto: https
     ```
 
-    Caddy serve this over HTTPS using its `internal`. The proxy is likely using a self-signed certificate that generated on this machine. So, using`curl -k` or (`--insecure`) bypasses a website or proxy that uses a **Self-Signed SSL Certificate** or an **untrusted/expired certificate**. 
+    Caddy serve this over HTTPS using its `internal`. The proxy is likely using a self-signed certificate that generated on this machine. So, using`curl -k` or (`--insecure`) bypasses a website or proxy that uses a **Self-Signed SSL Certificate** or an **untrusted/expired certificate**.
+
+    The traffic now between the client and the proxy was entirely encrypted over TLS (Transport Layer Security).
+
+    **Plain HTTP Flow**:
+   
+       Client  ───(Plain Text)───►  Proxy  ───(Plain Text)───►  Backend
+
+    **HTTPS / TLS Flow**:
+
+        Client  ───(Encrypted)───►  Proxy  ───(Plain Text)───►  Backend
+    

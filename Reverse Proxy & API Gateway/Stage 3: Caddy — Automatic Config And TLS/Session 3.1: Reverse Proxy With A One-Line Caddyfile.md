@@ -2,7 +2,7 @@
 
 ### Goal:
 
-Use a `caddy` container to reverse-proxy to the `whoami` backend with a minimal Caddyfile, and serve it over HTTPS using Caddy's local/internal certificate.
+- Use a `caddy` container to reverse-proxy to the `whoami` backend with a minimal Caddyfile, and serve it over HTTPS using Caddy's local/internal certificate.
 
 ### Constraints:
 

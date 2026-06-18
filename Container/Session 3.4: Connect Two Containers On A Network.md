@@ -41,7 +41,6 @@
     ```
 
 The `test` container is now able to reach `web-server` using `curl` running on the same Docker network.
-<<<<<<< HEAD
 
 ## Questions 
 
@@ -74,6 +73,3 @@ The `test` container is now able to reach `web-server` using `curl` running on t
 6. **How did the container name turn into an IP address?**
 
     Docker uses Embeded DNS Server `127.0.0.11`. This helps `curl` locate `web-server` by matching the IP of it to `127.18.0.2` and hand it back to `curl`. It is then able to make that connection. 
-=======
-
->>>>>>> cc58b24ece212dd22eb025df0335de1615c8f6db

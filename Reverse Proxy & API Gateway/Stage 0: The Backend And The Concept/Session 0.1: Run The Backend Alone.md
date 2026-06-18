@@ -47,3 +47,19 @@
     * IP: 172.17.0.2 (Bridge)
 
 * `Headers`: curl/8.7.1
+
+## Questions
+
+1. **`curl` the backend twice. Does the Hostname line stay the same?**
+
+    * Yes, the `Hostname` still says the same since it is still the same backend container.
+
+2. **Which header lines are present now, before any proxy exists?**
+
+    * `Host: localhost:8080`: This header identifies the host and port number of the server to which the request is being sent.
+
+    * `User-Agent`: This header identifies the client software, in this case `curl` version 7.81.0
+
+    * `Accept`: This tells the serveer which content types the client is able to understand. (`*/*`)
+
+    

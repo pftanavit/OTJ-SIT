@@ -1,8 +1,9 @@
 # Session 1.2: Container Lifetime And State 
 
-**Goal:** Create a file inside a container, exit, find the stopped container, start it again, and prove whether the file still exists. then recreate the container and see what happens to the file.
+### Goal: 
+Create a file inside a container, exit, find the stopped container, start it again, and prove whether the file still exists. then recreate the container and see what happens to the file.
 
-**Constraints:**
+### Constraints:
 
 - Use only Ubuntu.  
 - Do not use volumes.  
@@ -10,13 +11,13 @@
 
 You must explain the difference between stopping and removing a container.
 
-**Expected result:**
+### Expected results:
 
 - The learner can find stopped containers.  
 - The learner can restart a stopped container.  
 - The learner understands when container state survives and when it disappears.
 
-**States:**
+### States:
 
 ![][image1]
 

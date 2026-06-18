@@ -1,16 +1,16 @@
 # Session 2.4: Debug A Broken Dockerfile
 
-## Goal
+### Goal:
 
 * Fix a broken Dockerfile that fails because of wrong paths, missing permissions, or wrong command format.
 
-## Constraints
+### Constraints:
 
 * Base image must be ubuntu.
 * Do not replace the whole Dockerfile at once.
 * Explain each fix.
 
-## Expected result
+### Expected results:
 
 * The image builds successfully.
 * The container runs successfully.

@@ -65,3 +65,6 @@
 
     Result:
     ![example-browser](https://github.com/user-attachments/assets/f01567ef-6909-4ebb-8c03-43d5532e2b6b)
+
+   _Docker `EXPOSE`_: https://dhavalgojiya.hashnode.dev/understanding-dockers-expose-keyword-4-port-mapping-scenarios-explained
+   

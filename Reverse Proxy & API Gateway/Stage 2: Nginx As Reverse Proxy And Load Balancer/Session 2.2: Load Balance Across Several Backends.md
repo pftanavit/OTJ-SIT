@@ -73,3 +73,24 @@
     Notice that `Hostname` shuffles through not sticking to the same one for each time we use `curl`.
 
     By default, **Nginx** uses a "round-robin" load-balancing algorithm. The container ID of the backend change perfectly in a cycle from backend1 --> backend2 --> backend3 --> backend1.
+
+## Questions
+
+1. **`curl` Nginx ten times in a row. How many distinct `Hostname` values appear?**
+
+    * There can only be 3 `Hostname` values, since there are only 3 `whoami` backend containers in this proxy-network. 
+
+2. **Stop one backend and keep curling. Do requests still succeed?**
+
+    * Requests still succeed. However, there might be a momentary delay on one request, which is the backend that we stopped, but traffic will continue to flow. **Nginx** will recognize that the backend is unresponsive and distribute the incoming request between the remaining healthy containers. This is based on the principle of **High Availibility**. 
+
+3. **Round-robin sends request N+1 to the next backend regardless of load. When is that a bad strategy, and what alternatives exist (least-conn, IP-hash)?**
+
+    * Round-robin send requests entirely blind. It does not care how busy or how powerful a server is. It is a bad strategy when the application handles various tasks with different size. It could keep piling requests to the server with higher load while the other one sit completely idle.
+
+    * **`least_conn (Least Connections)`**: counts the number of active open connections on each backend and routes the next request to the server with the lowest number. It is good for applications with variable session lengths or long running process tasks.
+
+    * **`ip_hash (IP Hash)`**: Uses client's IP Address to mathematically calculate a specific backend destination so that the client, in specific, will always be routed to that exact backend. Best for "Sticky sessions" or if your application stores a user's shoping cart or login state locally on the server's memory. 
+
+    * **`hash (Generic Hash)`**: Determines the target server by evaluating a text string, optional request variables, or a combination of both. Used for Custom session persistance or caching. Can be hash by specific cookie, request URI, or request headers.
+    * **`random (Random)`** Used for highly distributed environmnets or when using multiple load balancers that do not share absolute server states.

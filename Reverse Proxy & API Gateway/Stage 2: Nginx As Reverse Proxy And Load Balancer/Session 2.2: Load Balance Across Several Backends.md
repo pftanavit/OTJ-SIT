@@ -86,7 +86,7 @@
 
 3. **Round-robin sends request N+1 to the next backend regardless of load. When is that a bad strategy, and what alternatives exist (least-conn, IP-hash)?**
 
-    * Round-robin send requests entirely blind. It does not care how busy or how powerful a server is. It is a bad strategy when the application handles various tasks with different size. It could keep piling requests to the server with higher load while the other one sit completely idle.
+    * **`Round-robin`** send requests entirely blind. It does not care how busy or how powerful a server is. It is a bad strategy when the application handles various tasks with different size. It could keep piling requests to the server with higher load while the other one sit completely idle.
 
     * **`least_conn (Least Connections)`**: counts the number of active open connections on each backend and routes the next request to the server with the lowest number. It is good for applications with variable session lengths or long running process tasks.
 

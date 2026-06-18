@@ -11,7 +11,7 @@ Run an `httpd` container that reverse-proxies incoming requests to the `whoami` 
 - Apache and the backend must be on the same Docker network so Apache can reach the backend by name.
 - Enable the proxy modules and write the proxy config yourself.
 
-### Expected result:
+### Expected results:
 
 - `curl` to Apache's published port returns the whoami output.
 - The whoami headers now show that the request came *through* Apache.

@@ -1,7 +1,4 @@
-# Stage 0: The Backend And The Concept
-Establish the fixed backend and the vocabulary before any proxy exists.
-
-## Session 0.1: Run The Backend Alone
+# Session 0.1: Run The Backend Alone
 
 **Goal**:
 * Run a single traefik/whoami container, publish its port, and reach it directly from the host with curl. Read what it returns.

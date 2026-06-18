@@ -1,8 +1,9 @@
 # Session 1: Enter A Base OS Container
 
-**Goal:** Start an Ubuntu container, enter its shell, find where you are, list files, create a file, read it, and exit.
+### Goal: 
+Start an Ubuntu container, enter its shell, find where you are, list files, create a file, read it, and exit.
 
-**Constraints:**
+### Constraints:
 
 - Use only the ubuntu image.  
 - Do not use a Dockerfile yet.  
@@ -10,7 +11,7 @@
 - Show the commands you used.
 
 
-**Expected result:**
+### Expected result:
 
 - can start a container.  
 - can move around the Linux filesystem.  

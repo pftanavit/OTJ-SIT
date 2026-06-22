@@ -1,0 +1,11 @@
+_format_version: "3.0"
+services:
+  - name: whoami-service
+    url: http://kong-backend:80
+    routes:
+      - name: whoami-route
+        paths:
+          - /api/whoami
+        strip_path: true
+
+# From Stage 5, Session 5.1: Route Through Kong

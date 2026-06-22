@@ -47,6 +47,26 @@
 
     Output:
     ```
+    Hostname: 4212a98543c9
+    IP: 127.0.0.1
+    IP: ::1
+    IP: 172.19.0.3
+    RemoteAddr: 172.19.0.2:47860
+    GET / HTTP/1.1
+    Host: kong-backend
+    User-Agent: curl/8.7.1
+    Accept: */*
+    Connection: keep-alive
+    Via: 1.1 kong/3.9.3
+    X-Forwarded-For: 192.168.65.1
+    X-Forwarded-Host: localhost
+    X-Forwarded-Path: /api/whoami
+    X-Forwarded-Port: 8000
+    X-Forwarded-Prefix: /api/whoami
+    X-Forwarded-Proto: http
+    X-Kong-Request-Id: aeae5b75eed3f915a14ae36ca595a30d
+    ```
+    ```
     {
     "message":"API rate limit exceeded",
     "request_id":"b9dfce7b943e764e21c6a766210edd49"

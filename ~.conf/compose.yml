@@ -59,4 +59,4 @@ services:
     networks:
       - api-net
 
-# From Stage 6, Session 6.1: Build The Stack.
+# From Stage 6, Session 6.1: Build The Stack

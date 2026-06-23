@@ -262,9 +262,9 @@ Outputs 5 vs 2, and 6 vs 7, show the `.2` / `.3` assignments reversed. Docker as
 ### Without a Proxy:
 
 ```
-RemoteAddr = Your device IP (who is requesting, no middleman)
+    RemoteAddr = Your device IP (who is requesting, no middleman)
 
-X-Forwarded-For = does not exist (no proxy to add)
+    X-Forwarded-For = does not exist (no proxy to add)
 ```
 
 ### Misconfigured Proxy:

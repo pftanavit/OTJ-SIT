@@ -367,3 +367,25 @@
         * `config:` : Pass parameters to customize how the plugin operates.
         * `minute: 3` : Sets the strict threshold constraint. Any single IP address is allowed a maximum of 3 requests per minute.
         * `policy: local` : Tells Kong to track and store the request counters in-memory inside the container locally, rather than connecting to an external cluster database like Redis.
+
+## Questions
+
+1. **`curl /` several times. Do you see the web backends cycling?**
+
+    * Yes, this is due to the default round robin balancing of Traefik. This alternating pattern perfectly distributes traffic across the backend replicas.
+
+2. **`curl /api` past the limit. Where does the 429 come from — Traefik or Kong?**
+
+    * From Kong, Traefik handles the initial request. When it sees `/api`, it then forwards it to Kong to handle th process.
+
+3. **Check each service's logs. Trace one `/api` request across the log lines of Traefik, Kong, and the backend.**
+
+    * The `/api` request goes from the machine to `Traefik` then `Kong` and lastly `api-backend`.
+
+4. **If you removed Kong and pointed `/api` straight at the backend, what protection would you lose?**
+
+    * You would lose `rate-limiting` and would directly expose the `api-backend` to `edge-net`.
+
+5. **Add a new backend with the right labels while the stack is running. Does Traefik route to it without a restart? Why?**
+    
+    * `Traefik` instantly updates its routing pool and begins spreading the incoming requests across all 5 containers seamlessly. This is due to **zero-downtime scaling**.

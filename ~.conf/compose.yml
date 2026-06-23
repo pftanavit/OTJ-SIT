@@ -1,0 +1,60 @@
+version: "3.8"
+
+networks:
+  edge-net:
+    name: edge-net
+    driver: bridge
+  api-net:
+    name: api-net
+    driver: bridge
+
+services:
+
+  traefik:
+    image: traefik:v3.6
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - "80:80"
+      - "8080:8080"
+    networks:
+      - edge-net
+    volumes:
+      - "/var/run/docker.sock.raw:/var/run/docker.sock:ro"
+
+  web-backend:
+    image: traefik/whoami
+    networks:
+      - edge-net
+    deploy:
+      replicas: 2
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.web-pool.rule=PathPrefix(`/`)"
+      - "traefik.http.routers.web-pool.entrypoints=web"
+
+  kong-proxy:
+    image: kong:3.4
+    container_name: kong-proxy
+    environment:
+      KONG_DATABASE: "off"
+      KONG_DECLARATIVE_CONFIG: /usr/local/kong/declarative/kong.yml
+      KONG_PROXY_LISTEN: 0.0.0.0:8000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.kong-router.rule=PathPrefix(`/api`)"
+      - "traefik.http.routers.kong-router.service=kong-service"
+      - "traefik.http.services.kong-service.loadbalancer.server.port=8000"
+      - "traefik.docker.network=edge-net"
+    networks:
+      - edge-net
+      - api-net
+    volumes:
+      - ./kong.yml:/usr/local/kong/declarative/kong.yml
+    
+  api-backend:
+    image: traefik/whoami
+    networks:
+      - api-net

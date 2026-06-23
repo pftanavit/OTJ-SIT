@@ -93,3 +93,5 @@
     * `Uniform Security Standards`: Having a centralized security standards ensures that all incoming traffic passes through the same screening. This also eliminates any chance of human error in each specific code.
 
     * `Time and Resource`: With gateway and security sorted, other developers can then spend more time on developing and building their code without having to worry or focus on the traffic and safety.
+
+<img width="1800" height="1120" alt="docker-kong-rate-limit-flow" src="https://github.com/user-attachments/assets/115eefd4-df11-4f25-a99a-13ceea45ea47" />

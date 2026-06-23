@@ -389,3 +389,5 @@
 5. **Add a new backend with the right labels while the stack is running. Does Traefik route to it without a restart? Why?**
     
     * `Traefik` instantly updates its routing pool and begins spreading the incoming requests across all 5 containers seamlessly. This is due to **zero-downtime scaling**.
+  
+<img width="1312" height="816" alt="docker-compose-stack" src="https://github.com/user-attachments/assets/bef614c8-3ee9-4d32-9774-1e22d689a37f" />

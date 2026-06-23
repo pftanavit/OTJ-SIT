@@ -109,3 +109,5 @@
         * **`Shared/Multi-tenant Infrastructure`**: In case where you are running your containers on public cloud hosts where other might have access to the underlying network fabric, plain HTTP is a risk.
 
         * **`It does not matter for`**: Most internal microservices, where the risk is considered negligible becuase the Docker network is isolated. The complexity and the performance cost simply outweighs the benefits.
+     
+<img width="1800" height="1120" alt="docker-caddy-proxy-flow" src="https://github.com/user-attachments/assets/8c045ca7-e493-49be-b663-9b9555d0addc" />

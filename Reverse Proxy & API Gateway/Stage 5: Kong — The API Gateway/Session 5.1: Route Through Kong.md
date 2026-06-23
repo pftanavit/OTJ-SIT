@@ -114,3 +114,5 @@
     * **Plugin Limitations**: some advanced Kong plugins relies on database to store their states and will not work in DB-less mode.
 
     * **Coordination at Mass Scale**: In DB-less mode, the automation tools have to manually push the updated `kong.yml` file to individual servers simultaneously.
+  
+<img width="1800" height="1120" alt="docker-kong-db-less-flow" src="https://github.com/user-attachments/assets/e1b7926a-56b1-4f80-9b26-c2f464a2101b" />

@@ -1,0 +1,16 @@
+_format_version: "3.0"
+services:
+  - name: hidden-api-service
+    url: http://api-backend:80
+    routes:
+      - name: api-route
+        paths:
+          - /api
+        strip_path: true
+        plugins:
+          - name: rate-limiting
+            config:
+              minute: 3
+              policy: local
+
+# From Stage 6, Session 6.1: Build The Stack

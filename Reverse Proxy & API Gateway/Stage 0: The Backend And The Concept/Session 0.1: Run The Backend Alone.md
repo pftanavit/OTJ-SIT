@@ -62,4 +62,5 @@
 
     * `Accept`: This tells the serveer which content types the client is able to understand. (`*/*`)
 
+<img width="1800" height="1120" alt="docker-direct-port-flow" src="https://github.com/user-attachments/assets/14329157-45ee-4794-8e2c-9f5495709155" />
     

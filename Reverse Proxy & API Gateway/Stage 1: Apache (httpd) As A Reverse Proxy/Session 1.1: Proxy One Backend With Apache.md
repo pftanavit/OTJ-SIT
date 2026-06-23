@@ -100,3 +100,5 @@
 4. **What does `ProxyPassReverse` fix that `ProxyPass` alone does not?**
 
     * It fixes `HTTP Redirects` sent by the backend so the client's browser does not get broken links. `ProxyPass` only handles incoming traffic. So, `ProxyPassReverse` changes `http://my-backend` to `http://localhost:8080`.
+
+<img width="1800" height="1120" alt="docker-proxy-network-flow" src="https://github.com/user-attachments/assets/24a56057-07ae-4021-88f1-4abe939b9434" />

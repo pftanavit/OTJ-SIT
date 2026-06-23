@@ -164,3 +164,5 @@
     * The Docker socket is the core API of the Docker daemon. Traefik mounts this file so it can listen to live containers and read the internal IP of them. Without it, Traefik is blind.
 
     * Mounting the Docker socket is equivalent to giving the container root-level access to the host machine. If the Traefik container is compromised, it can be used to send commands to the host's Docker daemon, allowing it to take over the entire network system.
+  
+<img width="1800" height="1120" alt="docker-traefik-dynamic-flow" src="https://github.com/user-attachments/assets/c6a68511-2b35-41cd-a863-caab2413ea47" />

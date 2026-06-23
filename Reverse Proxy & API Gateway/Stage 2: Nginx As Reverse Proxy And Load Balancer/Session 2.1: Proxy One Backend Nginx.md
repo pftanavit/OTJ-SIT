@@ -75,3 +75,5 @@ Similar to __*Stage 1.1 Proxy One Backend With Apache*__, however, this time we 
     * `Nginx`: Evet driven, handles thousands of concurrent connection within a single process. Extremely lightweight. Does not support `.htaccess`. Uses C-like block structure.
 
     * For simple use, either is perfectly fine. But for modern microservices and heavy reverse-proxying, **Nginx** is often the industry standard.
+
+<img width="1800" height="1120" alt="docker-nginx-proxy-flow" src="https://github.com/user-attachments/assets/9b4f65ee-c3a4-48fd-8dbb-045c46a5e05e" />

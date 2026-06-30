@@ -4,7 +4,7 @@ SSH is a cryptographic network protocol used to securely access, control, and tr
 
 ## TCP vs UDP
 
-TCP and UDP are both transport layer of the internet's structural models. They belong to Layer 4 of the OSI (Open Systems Interconnection) Model and the Transport Layer of the TCP/IP Model.
+TCP and UDP are both transport layer protocols of the internet's structural models. They belong to Layer 4 of the OSI (Open Systems Interconnection) Model and the Transport Layer of the TCP/IP Model.
 
 ### TCP (Transmission Control Protocol)
 
@@ -22,7 +22,7 @@ Commonly used for internet services where data loss is unacceptable such as, web
 
     3. `ACK (Acknowledge)`: Client responds with an `ACK` packet to complete the handshake. 
 
-- **Reliable Delivery**: It uses sequence numbers and acknowledegements to **ensure no data is lost** or duplicated, and that bytes arrive in the exact order they were sent.
+- **Reliable Delivery**: It uses sequence numbers and acknowledgements to **ensure no data is lost** or duplicated, and that bytes arrive in the exact order they were sent.
 
 - **Flow Control**: It utilizes a _sliding window_ mechanism to prevent a fast sender from overwhelming a slower receiver.
 
@@ -36,10 +36,10 @@ Commonly used for internet services where data loss is unacceptable such as, web
 
 UDP or User Datagram Protocol is a lightweight, connectionless transport-layer protocol designed for speed and efficiency. It sends data packets (datagrams) directly to the destination without establishing a prior connection or verifying receipt.
 
-Commonly used for real-time services where speed matters more than occational lost packets such as, live streaming (YouTube, Twitch), online gaming, voice over IP (VoIP, Zoom, Skype, Discord), DNS.
+Commonly used for real-time services where speed matters more than occasional lost packets such as, live streaming (YouTube, Twitch), online gaming, voice over IP (VoIP, Zoom, Skype, Discord), DNS.
 
 
-- **Connectionless**: It sends data immedietely without a handshake, reducing latency.
+- **Connectionless**: It sends data immediately without a handshake, reducing latency.
 
 - **Best-Effort Delivery**: It does not guarantee packets will arrive, stay in order, or avoid duplication.
 
@@ -76,6 +76,8 @@ Commonly used for real-time services where speed matters more than occational lo
     ```
 
 2. Configure permanent IPs on both VM via Netplan
+
+    _Use `ip a` to check and verify network details._
 
     **VM1**:     
     ```
@@ -114,7 +116,7 @@ Commonly used for real-time services where speed matters more than occational lo
     sudo netplan apply
     ```
 
-3. SSH Key Setup
+4. SSH Key Setup
 
     **VM1**:
     
@@ -138,7 +140,7 @@ Commonly used for real-time services where speed matters more than occational lo
     ssh-copy-id vm1@192.168.100.1
     ```
 
-4. Test
+5. Test
 
     From VM1:
     ```
@@ -165,7 +167,7 @@ Commonly used for real-time services where speed matters more than occational lo
 
     |Name|Protocol|Host IP|Host Port|Guest IP|Guest Port|
     |:---:|:---:|:---:|:---:|:---:|:---:|
-    |SSH|TCP|(blank)|2222|(blank)|22|
+    |SSH|TCP|127.0.0.1|2222|(blank)|22|
 
 2. From local machine terminal.
 

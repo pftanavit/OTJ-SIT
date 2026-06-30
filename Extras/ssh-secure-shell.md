@@ -178,7 +178,7 @@ Commonly used for real-time services where speed matters more than occasional lo
 
 You should now be able to connect to VM1.
 
-3. Copy the public key to VM.
+3. Copy the local machine's public key to VM1.
 
     ```
     ssh-copy-id -p 2222 vm1@127.0.0.1

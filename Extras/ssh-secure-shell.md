@@ -186,5 +186,5 @@ You should now be able to connect to VM1.
     Now you should be able to connect with no password.
 
     ```
-    ssh -p 2222 vm1@127.0.0.1
+    ssh vm1@127.0.0.1 -p 2222 
     ```

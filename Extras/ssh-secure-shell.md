@@ -177,3 +177,14 @@ Commonly used for real-time services where speed matters more than occasional lo
     This connects through the local machine and forwarded to VM1's port 22.
 
 You should now be able to connect to VM1.
+
+3. Copy the public key to VM.
+
+    ```
+    ssh-copy-id -p 2222 vm1@127.0.0.1
+    ```
+    Now you should be able to connect with no password.
+
+    ```
+    ssh -p 2222 vm1@127.0.0.1
+    ```

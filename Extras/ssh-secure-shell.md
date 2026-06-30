@@ -165,7 +165,7 @@ Commonly used for real-time services where speed matters more than occational lo
 
     ```
     Name    Protocol    Host IP Host Port   Guest IP    Guest Port
-    SSH TCP (blank) 2222    (blank) 22
+    SSH   TCP   (blank)   2222      (blank)   22
     ```
 
 2. From local machine terminal.

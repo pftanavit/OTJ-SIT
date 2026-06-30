@@ -153,3 +153,26 @@ Commonly used for real-time services where speed matters more than occational lo
     ```
 
     This should allow you to remotely connect to and control another machine.
+
+
+## From Local Machine to VM
+
+1. Configure the network settings.
+
+    In Network Settings inside VirtualBox:
+        
+    Select Port Forwarding
+
+    ```
+    Name    Protocol    Host IP Host Port   Guest IP    Guest Port
+    SSH TCP (blank) 2222    (blank) 22
+    ```
+
+2. From local machine terminal.
+
+    ```
+    ssh vm1@127.0.0.1 -p 2222
+    ```
+    This connects through the local machine and forwarded to VM1's port 22.
+
+You should now be able to connect to VM1.

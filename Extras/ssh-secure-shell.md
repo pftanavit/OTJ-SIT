@@ -161,7 +161,7 @@ Commonly used for real-time services where speed matters more than occasional lo
 
 1. Configure the network settings.
 
-    In Network Settings inside VirtualBox:
+    In Network Settings inside VirtualBox (Network Adapter: NAT):
         
     Select `Port Forwarding`:
 
@@ -171,12 +171,17 @@ Commonly used for real-time services where speed matters more than occasional lo
 
 2. From local machine terminal.
 
+    Generate new keys.
+    ```
+    ssh-keygen -t ed25519
+    ```
+    Connect to VM1.
     ```
     ssh vm1@127.0.0.1 -p 2222
     ```
     This connects through the local machine and forwarded to VM1's port 22.
 
-You should now be able to connect to VM1.
+    You should now be able to connect to VM1.
 
 3. Copy the local machine's public key to VM1.
 

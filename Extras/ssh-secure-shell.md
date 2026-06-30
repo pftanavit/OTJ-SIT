@@ -163,10 +163,9 @@ Commonly used for real-time services where speed matters more than occational lo
         
     Select Port Forwarding
 
-    ```
-    Name    Protocol    Host IP Host Port   Guest IP    Guest Port
-    SSH   TCP   (blank)   2222      (blank)   22
-    ```
+    |Name|Protocol|Host IP|Host Port|Guest IP|Guest Port|
+    |:---:|:---:|:---:|:---:|:---:|:---:|
+    |SSH|TCP|(blank)|2222|(blank)|22|
 
 2. From local machine terminal.
 

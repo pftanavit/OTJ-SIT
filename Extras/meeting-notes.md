@@ -43,14 +43,14 @@
 
 - `Desired State`: Create a Git repository that is structured with all the requirements and directories.
 
-- `Declarative Manifests`: Complete the folder with Kubernetes YAML files or Helm chart. For example, including Cilium as the network layer.
+- `Declarative Manifests`: Complete the folder with Kubernetes YAML files or Helm chart. 
 
-**4. Automation Bridge**. With GitOps, link the cluster to the Git repository.
+**4. Automation Bridge**. With GitOps, link the new cluster to the Git repository via existing Argo CD instance.
 
-- `Argo CD`: With command `kubectl apply`, install the Argo CD directly into the new `RKE2` cluster.
+- `Argo CD`: Register the new RKE2 cluster with the existing central Argo CD server (e.g., using the `argocd cluster add` command or applying a declarative Secret) so it has permission to manage the remote nodes.
 
-- `Connection`: Provide Argo CD with the URL to the Git Repository to tell it where to look at.
+- `Connection`: On the central Argo CD server, create an Application resource. Point the source URL to your Git Repository and set the destination network to your newly registered RKE2 cluster. (e.g., `argocd repo add git@github.com:your-org/your-repo.git --ssh-private-key-path ~/.ssh/id_rsa`)
 
-- `Reconciliation Loop`: Argo CD compares the Desired State from the Git repo against the Actual State that is running in the cluster.
+- `Reconciliation Loop`: The central Argo CD instance compares the Desired State from the Git repo against the Actual State that is running in the remote cluster.
 
-- `CD`: With Continuous Delivery, Argo CD continuously watches the Git repository for changes and builds the resources inside the cluster. If a new commit is pushed, Argo CD automatically updates the cluster to match.
+- `CD`: With Continuous Delivery, Argo CD continuously watches the Git repository for changes and reaches across the network to build resources inside the remote cluster. If a new commit is pushed, Argo CD automatically updates the cluster to match.

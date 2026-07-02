@@ -76,7 +76,7 @@ Pod phase gives a summary of where it is in its lifecycle. To learn more about t
 
 ### Container States
 
-As well as the phase of the Pod overall, Kubernetes tracks the state of each container inside a Pod. You can use container lifecycle hooks to trigger events to run at certain points in a container's lifecycle. A container can be in one of the four states below.
+As well as the phase of the Pod overall, Kubernetes tracks the state of each container inside a Pod. You can use container lifecycle hooks to trigger events to run at certain points in a container's lifecycle. A container can be in one of the three states below.
 
 
 |Container State|Description|
@@ -124,3 +124,19 @@ If a container fails its liveness probe more times than the configured tolerance
 ### Readiness probe
 
 Readiness probes determine when a container is ready to accept traffic. This is useful when waiting for an application to perform time-consuming initial tasks, such as establishing network connections, loading files, and warming caches. Readiness probes can also be useful later in the container’s lifecycle, for example, when recovering from temporary faults or overloads.
+
+## Init Containers
+
+A Pod can have multiple containers running apps within it, but it can also have one or more init containers, which are run before the app containers are started. Init containers are just like regular containers, however, they do not run in parallel - only one init container runs at a time.
+
+### Common uses of init containers:
+
+Init containers are typically added to pods to:
+
+- Initialize files in the volumes used by the pod's main containers. Because init containers run to completion before the main containers start, they are perfect for staging data. For example, an init container could clone a Git repository into a shared volume, dynamically generate a configuration file from a template, or extract a heavy ZIP archive so the data is ready to go the second your main web server container boots up.
+
+- Initialize the pod's networking system. Main application containers should generally run with the least privilege possible. If your pod requires advanced network routing or custom `iptables` rules, you can run a highly privileged init container to execute these network changes and then exit. The main container can then run securely without needing root or elevated network capabilities.
+
+- Delay the start of the pod's main containers until a precondition is met. If your web application relies on a database, it will likely crash if it starts before the database is ready. You can use an init container that continuously pings or runs `nslookup` on the database service, only exiting successfully when the database answers. This prevents your main container from getting stuck in a frustrating `CrashLoopBackOff` cycle.
+
+- Notify an external service that the pod is about to start running. Sometimes, external infrastructure needs to know a pod is coming online before it starts accepting traffic. An init container can be used to send an HTTP POST request or webhook to register the pod with an external service registry, a custom load balancer, or a monitoring dashboard, ensuring the external system is prepared before the main application starts processing data.

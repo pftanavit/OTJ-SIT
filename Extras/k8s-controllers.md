@@ -6,7 +6,7 @@ In Kubernetes, controllers are control loops that watch the state of your cluste
 
 A `ReplicaSet` is a low-level workload designed to guarantee that a specific numbers of identical `Pods` are running at all times. It contains a ___label selector___ (to identify pods), a ___replica count___ (the desired number), and a ___Pod template___ (an image to use if it needs to build more).
 
-The **ReplicaSet** endlessly counts the number of pods in the cluster that match its label selector. If the count is too low, it clones the Pod template to create new ones. If the count is too high, it terminates the excess Pods. It has mathematical tunnel vision. It does not care about application versions, rolling updates, or node topology, only the target pod count.
+The `ReplicaSet` endlessly counts the number of pods in the cluster that match its label selector. If the count is too low, it clones the Pod template to create new ones. If the count is too high, it terminates the excess Pods. It has mathematical tunnel vision. It does not care about application versions, rolling updates, or node topology, only the target pod count.
 
 ## Deployment 
 

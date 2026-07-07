@@ -68,7 +68,7 @@ The `test` container is now able to reach `web-server` using `curl` running on t
 
 5. **Run ip addr in both containers. Do they have different IP addresses?**
 
-    * Yes, they are different. In `test`, it shows `172.18.0.3`. In `web-server`, 172.18.0.2. Every single container on a Docker network gets its own distinct internal IP Address. Docker acts as a virtual DHCP router handind out IPs.
+    * Yes, they are different. In `test`, it shows `172.18.0.3`. In `web-server`, `172.18.0.2`. Every single container on a Docker network gets its own distinct internal IP Address. Docker acts as a virtual DHCP router handind out IPs.
 
 6. **How did the container name turn into an IP address?**
 
